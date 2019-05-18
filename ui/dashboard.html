@@ -1,0 +1,88 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"> 
+        <link rel="stylesheet" href="aggregator.css"> 
+        <title>Aggregator</title>         
+    </head>     
+    <body> 
+        <nav class="navbar navbar-expand-lg navbar-light custom-nav"> 
+            <a class="navbar-brand" href="#">My Dashboard</a> 
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> 
+                <span class="navbar-toggler-icon"></span> 
+            </button>             
+            <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNav"> 
+                <ul class="navbar-nav align-items-center flex-row"> 
+                    <li class="nav-item"> 
+                        <a class="nav-link custom-link" href="#">Uche Iyke</a> 
+                    </li>                     
+                    <li class="nav-item has-dropdown">
+                        <a class="nav-link custom-link" href="#"> 
+                            <div class="nav-img" style="background-image: url('images/fiap@2x.png')"> 
+                            </div>
+                        </a>
+
+                    <!-- drop menu   -->
+                        <ul class="link-dropdown-menu">
+                            <li class="link-dropdown-menu-item"><a href="#">Edit Account</a></li>
+                            <li class="link-dropdown-menu-item"><a href="#">Edit Profile</a></li>
+                        </ul>
+                    </li>                     
+                    <li class="nav-item"> 
+                        <a class="nav-link custom-link" href="#">
+                            <img class="menu-icon" src="svg/home.svg">
+                        </a>                         
+                    </li>                     
+                </ul>                 
+            </div>             
+        </nav>         
+        <section class="subscription-container"> 
+            <div class="container"> 
+                <div class="row"> 
+                    <div class="col-md-4 col-sm-6"> 
+                        <div class="service-info"> 
+                            <div class="service-card"> 
+                                <button class="btn btn-custom"> Active</button>
+                                <img class="service-card-image" src="images/fiap@2x.png" />
+                                <p class="service-card-text">Flower In A Pot</p> 
+                            </div>                             
+                            <div class="service-card-detail text-center"> 
+                                <p>Duration: 21/09/2019 - 31/09/2019</p> 
+                                <p>Last payment made: N3,000</p> 
+                            </div>                             
+                        </div>                         
+                    </div>                     
+                    <div class="col-md-4 col-sm-6"> 
+                        <div class="service-info"> 
+                            <div class="service-card">
+                                <button class="btn btn-custom inactive">Inactive</button>
+                                <img class="service-card-image" src="images/fiap@2x.png" />
+                                <p class="service-card-text">Flower In A Pot</p> 
+                            </div>                             
+                            <div class="service-card-detail text-center"> 
+                                <p>Duration: 21/09/2019 - 31/09/2019</p> 
+                                <p>Last payment made: N3,000</p> 
+                            </div>                             
+                        </div>                         
+                    </div>                     
+                    <div class="col-md-4 col-sm-6"> 
+                        <div class="service-info"> 
+                            <div class="service-card inactive">
+                                <button class="btn btn-custom inactive">Inactive</button>
+                                <img class="service-card-image" src="images/fiap@2x.png" />
+                                <p class="service-card-text">Flower In A Pot</p> 
+                            </div>                             
+                            <div class="service-card-detail text-center"> 
+                                <p>Duration: 21/09/2019 - 31/09/2019</p> 
+                                <p>Last payment made: N3,000</p> 
+                            </div>                             
+                        </div>                         
+                    </div>                     
+                </div>                 
+            </div>             
+        </section>         
+    </body>     
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"> 
+        <link rel="stylesheet" href="aggregator.css"> 
+        <title>Aggregator</title>         
+    </head>     
+    <body> 
+        <section> 
+            <div class="container">
+                <div class="row"> 
+                    <div class="col-sm-8 offset-sm-2 col"> 
+                        <div class="place-holder">
+                            <h3 class="header-text">Service Subscription</h3>
+                            <div class="place-holder-text pr-3 pl-3"> 
+                                <p class="place-holder-heading text-center text-md-left">Please fill the following to update your profile.</p> 
+                                <form>
+                                    <div class="form-section">
+                                        <div class="row">
+                                            <div class="text-center text-md-left col-md-4">
+                                                <div class="upload-btn-wrapper">
+                                                    <button class="btn file-btn">
+                                                        <img src="images/png/download.png">
+                                                    </button>
+                                                    <input type="file" name="myfile" />
+                                                    <p>Upload Photo</p>
+                                                </div>
+                                                <p>Upload Photo</p>
+                                            </div>
+                                            <div class="col-md-5 text-center">
+                                                <div class="form-check-holder mt-3">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                        <label class="form-check-label" for="inlineRadio1">female</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                        <label class="form-check-label" for="inlineRadio2">male</label>
+                                                    </div>
+                                                </div>
+                                                <input type="date" class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-section">
+                                        <div class="row">
+                                            <div class="col-12 col-sm">
+                                                <div class="custom-form-field">
+                                                    <input type="text" class="form-control custom-form-control" placeholder="First Name">
+                                                    <label class="custom-form-label">First Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm">
+                                                <div class="custom-form-field">
+                                                    <input type="text" class="form-control custom-form-control" placeholder="Middle Name">
+                                                    <label class="custom-form-label">Middle Name</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 col-sm">
+                                                <div class="custom-form-field">
+                                                    <input type="text" class="form-control custom-form-control" placeholder="Surname">
+                                                    <label class="custom-form-label">Surname</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm">
+                                                <div class="custom-form-field">
+                                                    <input type="text" class="form-control custom-form-control" placeholder="Profile Name">
+                                                    <label class="custom-form-label">Profile Name</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 col-sm">
+                                                <div class="custom-form-field">
+                                                    <input type="text" class="form-control custom-form-control" placeholder="Email">
+                                                    <label class="custom-form-label">Email</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm">
+                                                <div class="custom-form-field">
+                                                    <input type="text" class="form-control custom-form-control" placeholder="Location">
+                                                    <label class="custom-form-label">Location</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-section">
+                                        <div class="row">
+                                            <div class="col-sm-12 text-center">
+                                                <div class="profile-select">
+                                                    <div class="profile-select-group text-sm-left">
+                                                        <h5 class="text-center text-sm-left">Employment Status</h5>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="employed" value="option1">
+                                                            <label class="form-check-label" for="employed">Employed</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="unemployed" value="option2">
+                                                            <label class="form-check-label" for="unemployed">Unemployed</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option1">
+                                                            <label class="form-check-label" for="inlineRadio3">Self-employed</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option2">
+                                                            <label class="form-check-label" for="inlineRadio4">Student</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-section">
+                                        <div class="row text-center">
+                                            <div class="col-md-4 offset-md-2 col-6 offset-0">
+                                                <a href="congratulations.html" class=" btn btn-custom"> Prev</a>
+                                            </div>
+                                            <div class="col-md-4 col-6">
+                                                <a href="updateprofile.html" class=" btn btn-custom"> Next</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>                                 
+                            </div>                             
+                        </div>                         
+                    </div>                     
+                </div>                 
+            </div>             
+        </section>         
+    </body>     
+</html>

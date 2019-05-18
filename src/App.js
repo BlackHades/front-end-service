@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React ,{Component} from 'react';
+import ExploreServicesPage from "./pages/customer/ExploreServicesPage/ExploreServicesPage";
+import { detectPhoneUrl} from "./endpoints";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Loader from "./components/Loader/Loader";
+import {Redirect} from "react-router-dom";
+
+class App extends Component{
+
+    state = {
+        loading:true,
+    };
+
+    redirectToDetectNumber = () => {
+        return (
+            <Redirect push to={{
+                pathname:detectPhoneUrl
+            }} />
+        );
+    };
+
+
+    componentDidMount() {
+        this.setState({
+            loading:false
+        });
+    }
+
+
+    render(){
+        const {firstService,detectedNumber,detectPhoneNumber} = this.props;
+        const {loading} = this.state;
+    return (
+        <div className="App">
+            {
+                loading=== true ? <Loader/> : <ExploreServicesPage firstService={firstService} detectedNumber={detectedNumber}  detectPhoneNumber={detectPhoneNumber} />
+            }
+
+            {
+                detectedNumber !== null ? this.redirectToDetectNumber() : null
+            }
+        </div>
+
+
+    );
+  }
+
 }
 
 export default App;
