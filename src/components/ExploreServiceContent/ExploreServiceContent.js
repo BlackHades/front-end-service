@@ -7,8 +7,8 @@ class ExploreServiceContent extends React.Component{
     removeLoader = () => {
 
         window.addEventListener('load',function () {
-            const loader = document.querySelector('.loader-container');
-            loader.style.display = 'none';
+            // const loader = document.querySelector('.loader-container');
+            // loader.style.display = 'none';
         });
 
     };

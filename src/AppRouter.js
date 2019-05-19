@@ -175,8 +175,7 @@ class AppRouter extends Component {
                        render={(props) => <ServicesProvidersPage {...props} state = {"documents"} />}
                 />
 
-                <Route path={serviceProviderCreatePassword}
-                       render={(props) => <ServicesProvidersCreatePassword {...props}/>}
+                <Route path="/service/provider/create/:token" component={ServicesProvidersCreatePassword}
                 />
 
                 <Route path={serviceProviderLogin}

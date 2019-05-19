@@ -25,7 +25,7 @@ class PendingMailSent extends Component{
             <div className={'loader-container'}>
                 <div className="success-cont">
                     <span className="success">You have successfully indicated interest to provide a service. We have sent an email to you, click on the link to continue</span>
-                    <button onClick={this.createPasswordPage()} className="btn btn-default continue-btn">Continue</button>
+                    <button onClick={() => this.createPasswordPage()} className="btn btn-default continue-btn">Continue</button>
                 </div>
             </div>
         )

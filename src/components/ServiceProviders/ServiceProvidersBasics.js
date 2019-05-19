@@ -44,43 +44,42 @@ class serviceProvidersBasics extends Component {
 
                 if(res.data.status === 201){
 
-                    // this.setState({submitted: false});
-                    //
-                    // this.setState({sent: true});
-                    //
-                    // this.setState({failed: false});
-
                     this.setState({submitted: false});
 
-                    this.setState({failed: false});
-
                     this.setState({sent: true});
+
+                    this.setState({failed: false});
 
                 }else {
 
-                    // this.setState({submitted: false});
-                    //
-                    // this.setState({failed: true});
-                    //
-                    // this.setState({sent: false});
-
                     this.setState({submitted: false});
 
-                    this.setState({sent: true});
+                    this.setState({failed: true});
 
-                    this.setState({failed: false});
+                    this.setState({sent: false});
                 }
 
             }).catch(e => {
-            // this.setState({errorText: JSON.stringify(e.response.data.error)});
-            //
-            // this.setState({error: true});
-            //
-            this.setState({submitted: false});
+            if (e.response) {
+                const errorMsg = JSON.stringify(e.response.data.error);
+                this.errorMsg = errorMsg.replace(/"/g,"");
 
-            this.setState({sent: true});
+                this.setState({sent: true, submitted: false, failed: false, error : false});
 
-            this.setState({failed: false});
+                // this.setState({errorText: this.errorMsg});
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                // console.log(e.response.data);
+                // console.log(e.response.status);
+                // console.log(e.response.headers);
+
+            } else if (e.request) {
+                this.setState({errorText: e.message, error : true});
+                console.log(e.request);
+            } else {
+                this.setState({error : true, errorText: JSON.stringify(e.message)});
+                console.log('Error', e.message);
+            }
         });
 
     }
@@ -89,8 +88,6 @@ class serviceProvidersBasics extends Component {
         let fields = this.state.fields;
         let errors = {};
         let formIsValid = true;
-
-        console.log("SOMETHING", this.state);
 
         if(!fields["name"]){
             formIsValid = false;
@@ -154,14 +151,14 @@ class serviceProvidersBasics extends Component {
     render() {
         return(
             <div className="provider-child">
-                { this.state.submitted ? <Loader/> :null }
-                { this.state.failed ? <FailedSignUp/> :null }
+                { this.state.submitted ? <Loader/> :null}
+                { this.state.failed ? <FailedSignUp/> :null}
                 <div className="header-container">
                     <h3 className="h3">Please key in your company information</h3>
                 </div>
 
-                {this.state.error ? <ErrorPage error = {this.state.errorText} link = {'call an api'}/> : null}
-                { this.state.sent ? <PendingMailSent/> :null }
+                {this.state.error ? <ErrorPage error = {this.state.errorText} link = {'basics'}/> : null}
+                {this.state.sent ? <PendingMailSent/> :null}
 
                 <div className="form-container">
                     <form onSubmit={this.contactSubmit.bind(this)}>

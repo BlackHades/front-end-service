@@ -1,14 +1,10 @@
 import React , {Component} from 'react';
 class ErrorPage extends Component{
 
-    // constructor(props){
-    //     super(props);
-    // }
-
     render(){
         return (
             <div className="error-container">
-                <span className="error">{this.props.error}, Click to get an email {this.props.link}</span>
+                <span className="error">{this.props.error}, Click <a href={"/service/provider/basics"}>Here</a> here to get an email</span>
             </div>
         );
     }

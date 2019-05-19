@@ -10,16 +10,29 @@ class serviceProviderCreatePassword extends Component {
     constructor(props){
         super(props);
 
-        console.log(props.token);
+        console.log("ALEJANDRA", props.token);
 
         this.token = props.token;
 
         this.state = {
             fields: {},
             errors: {},
-            server_response: {}
+            server_response: {},
+            invalidToken : false
         };
     }
+
+    componentWillMount() {
+        if(this.isValid(this.token)){
+            console.log("VALID", "Parsed Token is valid"+this.token);
+            this.setState({invalidToken : true});
+        }else {
+            console.log("INVALID", "Parsed Token is invalid"+this.token);
+            this.setState({invalidToken : false});
+        }
+
+    }
+
 
     isValid(token){
         console.log("SECRET-----> ", key);
@@ -57,33 +70,29 @@ class serviceProviderCreatePassword extends Component {
         let errors = {};
         let formIsValid = true;
 
-        console.log("SOMETHING", this.state);
+        console.log("DATA-IN", fields["password"]);
 
-        let pass = fields["password"];
-        let confirm_pass = fields["confirm password"];
-        if(!pass){
+        if(!fields["password"]){
             formIsValid = false;
             errors["password"] = "Password field cannot be empty";
-        }
-
-        if(pass.length < 6){
-            formIsValid = false;
-            errors["password"] = "Password must be at least 6 characters long";
-        }
-
-        if(!confirm_pass){
+        }else if(!fields["cpassword"]){
             formIsValid = false;
             errors["cpassword"] = "Confirm password field cannot be empty";
-        }
+        }else{
 
-        if(!confirm_pass.length < 6){
-            formIsValid = false;
-            errors["cpassword"] = "Password must be at least 6 characters long";
-        }
+            let pass = fields["password"];
+            let confirm_pass = fields["cpassword"];
 
-        if(pass !== confirm_pass){
-            formIsValid = false;
-            errors["password"] = "Password do not match!!!";
+            if(pass.length < 6){
+                formIsValid = false;
+                errors["password"] = "Password must be at least 6 characters long";
+            }else if(confirm_pass.length < 6){
+                formIsValid = false;
+                errors["cpassword"] = "Password must be at least 6 characters long";
+            }else if(pass !== confirm_pass){
+                formIsValid = false;
+                errors["password"] = "Password do not match!!!";
+            }
         }
 
         this.setState({errors: errors});

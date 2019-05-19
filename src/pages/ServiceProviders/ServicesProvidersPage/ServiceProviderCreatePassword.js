@@ -4,10 +4,13 @@ import '../../../serviceProviders.css'
 
 
 function ServiceProviderCreatePassword(props) {
+    console.log("DATA-passed!!!", props.match.params.token);
+    const token = props.match.params.token;
+
         return (
             <React.Fragment>
                 <div className="provider-parent">
-                    <CreatPassword token={props.token} />
+                    <CreatPassword token={token} />
                 </div>
             </React.Fragment>
         );
