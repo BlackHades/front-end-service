@@ -22,6 +22,6 @@ let generateWorkers = () => {
     }
 
     return { "services": services }
-}
+};
 
 module.exports = generateWorkers;

@@ -7,9 +7,12 @@
  const createProfile = '/create-profile';
  const selectInterest = '/select-interest';
  const displayServices = '/services';
- const serviceProviderBasics = '/serviceProvidersBasics';
- const serviceProviderDocuments = '/serviceProviderDocuments';
+ const serviceProviderBasics = '/service/provider/basics';
+ const serviceProviderDocuments = '/service/provider/documents';
+ const serviceProviderCreatePassword = '/service/provider/create/password';
+ const serviceProviderLogin = '/service/provider/login';
  const homeUrl = '/';
 
 export  {getServices,detectPhoneUrl,confirmPhoneUrl,inputPhoneUrl,homeUrl,
-    displayServices,selectInterest,createProfile,serviceConfirmedUrl,sendConfirmCode, serviceProviderBasics, serviceProviderDocuments}
+    displayServices,selectInterest,createProfile,serviceConfirmedUrl,sendConfirmCode,
+    serviceProviderBasics, serviceProviderDocuments, serviceProviderCreatePassword, serviceProviderLogin}

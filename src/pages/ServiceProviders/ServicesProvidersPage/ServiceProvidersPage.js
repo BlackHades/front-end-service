@@ -7,7 +7,7 @@ import '../../../serviceProviders.css'
 function ServicesProviders(props) {
     const state = props.state;
 
-    if(state == "basics"){
+    if(state === "basics"){
         return (
             <React.Fragment>
                 <div className="provider-parent">
@@ -17,7 +17,7 @@ function ServicesProviders(props) {
         );
     }
 
-    else if(state == "documents"){
+    else if(state === "documents"){
         return (
             <React.Fragment>
                 <div className="provider-parent">

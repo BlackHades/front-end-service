@@ -6,7 +6,9 @@ import {
     homeUrl,
     inputPhoneUrl,
     serviceConfirmedUrl,
-    sendConfirmCode, createProfile, serviceProviderBasics, serviceProviderDocuments
+    sendConfirmCode, createProfile, serviceProviderBasics,
+    serviceProviderDocuments, serviceProviderCreatePassword,
+    serviceProviderLogin
 } from "./endpoints";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import DetectNumberPage from "./pages/customer/DetectNumberPage/DetectNumberPage";
@@ -21,6 +23,8 @@ import SendConfirmCodePage from "./pages/customer/SendConfirmCodePage/SendConfir
 import SuccessMessagePage from "./pages/customer/SuccessMessagePage/SuccessMessagePage";
 import CreateProfilePage from "./pages/customer/CreateProfilePage/CreateProfilePage";
 import ServicesProvidersPage from "./pages/ServiceProviders/ServicesProvidersPage/ServiceProvidersPage";
+import ServicesProvidersCreatePassword from "./pages/ServiceProviders/ServicesProvidersPage/ServiceProviderCreatePassword";
+import ServiceProviderLogin from "./pages/ServiceProviders/ServicesProvidersPage/ServiceProviderLogin";
 
 class AppRouter extends Component {
 
@@ -35,7 +39,6 @@ class AppRouter extends Component {
         detectedNumber: null,
         serviceMessage: null
     };
-
 
     componentWillMount() {
 
@@ -90,7 +93,6 @@ class AppRouter extends Component {
         })
     };
 
-
     detectPhoneNumber = () => {
 
         //redirect to server and get header from page
@@ -127,19 +129,18 @@ class AppRouter extends Component {
 
     };
 
-
     render() {
         const {detectedNumber, firstService} = this.state;
         return (
             <Router>
+
                 <Route exact path={homeUrl} render={(props) => {
                     return (<App {...props}
                                  detectedNumber={detectedNumber}
                                  firstService={firstService}
                                  detectPhoneNumber={this.detectPhoneNumber}
                             />);
-                        }
-                    }
+                        }}
                 />
 
                 <Route path={detectPhoneUrl}
@@ -147,23 +148,23 @@ class AppRouter extends Component {
                 />
 
                <Route path={confirmPhoneUrl}
-               render={(props) => <ConfirmNumberPage {...props} phoneNumber={detectedNumber}/>}
+                      render={(props) => <ConfirmNumberPage {...props} phoneNumber={detectedNumber}/>}
                />
 
                <Route path={inputPhoneUrl}
-               render={(props) => <InputNumberPage {...props} phoneNumber={detectedNumber} changeNumber={this.changeNumber} />}
+                      render={(props) => <InputNumberPage {...props} phoneNumber={detectedNumber} changeNumber={this.changeNumber} />}
                />
 
                <Route path={sendConfirmCode}
-               render={(props) => <SendConfirmCodePage {...props} phoneNumber={detectedNumber} />}
+                      render={(props) => <SendConfirmCodePage {...props} phoneNumber={detectedNumber} />}
                />
 
                <Route path={serviceConfirmedUrl}
-               render={(props) => <SuccessMessagePage {...props} />}
+                      render={(props) => <SuccessMessagePage {...props} />}
                />
 
                <Route path={createProfile}
-               render={(props) => <CreateProfilePage {...props} />}
+                      render={(props) => <CreateProfilePage {...props} />}
                />
 
                 <Route path={serviceProviderBasics}
@@ -172,6 +173,14 @@ class AppRouter extends Component {
 
                 <Route path={serviceProviderDocuments}
                        render={(props) => <ServicesProvidersPage {...props} state = {"documents"} />}
+                />
+
+                <Route path={serviceProviderCreatePassword}
+                       render={(props) => <ServicesProvidersCreatePassword {...props}/>}
+                />
+
+                <Route path={serviceProviderLogin}
+                       render={(props) => <ServiceProviderLogin {...props}/>}
                 />
 
             </Router>
