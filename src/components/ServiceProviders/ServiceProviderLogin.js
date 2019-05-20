@@ -134,7 +134,7 @@ class serviceProviderLogin extends Component {
                                         <button type="submit" className="btn btn-default">Sign Up</button>
                                     </div>
                                 </form>
-                                <p class="text-center mt-2">Don't have an account? <a href="changepasword.html">Sign Up Here</a></p>
+                                <p className="text-center mt-2">Don't have an account? <a href="changepasword.html">Sign Up Here</a></p>
                             </div>
                         </div>
 

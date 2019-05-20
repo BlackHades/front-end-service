@@ -25,6 +25,7 @@ import CreateProfilePage from "./pages/customer/CreateProfilePage/CreateProfileP
 import ServicesProvidersPage from "./pages/ServiceProviders/ServicesProvidersPage/ServiceProvidersPage";
 import ServicesProvidersCreatePassword from "./pages/ServiceProviders/ServicesProvidersPage/ServiceProviderCreatePassword";
 import ServiceProviderLogin from "./pages/ServiceProviders/ServicesProvidersPage/ServiceProviderLogin";
+import ServiceProviderDashBoard from "./pages/ServiceProviders/ServicesProvidersPage/ServiceProviderDashBoard";
 
 class AppRouter extends Component {
 
@@ -175,11 +176,14 @@ class AppRouter extends Component {
                        render={(props) => <ServicesProvidersPage {...props} state = {"documents"} />}
                 />
 
-                <Route path="/service/provider/create/:token" component={ServicesProvidersCreatePassword}
+                <Route path="/service/provider/email-confirm/:token" component={ServicesProvidersCreatePassword}
                 />
 
                 <Route path={serviceProviderLogin}
                        render={(props) => <ServiceProviderLogin {...props}/>}
+                />
+
+                <Route path="/service/provider/dashboard/" component={ServiceProviderDashBoard}
                 />
 
             </Router>
