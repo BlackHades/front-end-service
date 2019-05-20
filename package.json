@@ -28,11 +28,11 @@
     "yarn": "^1.16.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "mock:api": "json-server --watch src/api/service.js --port 4000"
+    "start-mockapi": "json-server --watch src/api/service.js --port 4000"
   },
   "eslintConfig": {
     "extends": "react-app"
