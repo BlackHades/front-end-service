@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import '../../serviceProviders.css'
 import axios from 'axios';
+import Loader from "../Loader/Loader";
 import jwt from 'jsonwebtoken';
 import { Redirect } from 'react-router-dom';
 import key from '../../secret/public.key';
+import InvalidPassword from "../../pages/ServiceProviders/ServicesProvidersPage/InvalidPassword";
 
 class serviceProviderCreatePassword extends Component {
 
@@ -18,7 +20,10 @@ class serviceProviderCreatePassword extends Component {
             fields: {},
             errors: {},
             server_response: {},
-            invalidToken : false
+            invalidToken : false,
+            loading : false,
+            gotodashboard : false,
+            incorrect : false
         };
     }
 
@@ -35,7 +40,7 @@ class serviceProviderCreatePassword extends Component {
 
 
     isValid(token){
-        console.log("SECRET-----> ", key);
+        return token === "pass";
 
         jwt.verify(this.token, key, function(err, decoded) {
             console.log("DECODED----B", decoded);
@@ -44,24 +49,46 @@ class serviceProviderCreatePassword extends Component {
 
     async postCredentials() {
 
+        this.setState({loading : true});
+
         const form_data = {
             "password" : this.state.fields.password,
             "confirm_password" : this.state.fields.confirm_password,
         };
 
-        try {
-            console.log("VALIDATION", form_data);
+        //TODO:: uncomment when ready
+        // try {
+        //     console.log("VALIDATION", form_data);
+        //
+        //     axios.post('http://localhost:5000/', form_data )
+        //         .then(res => {
+        //         this.state.server_response = res.data;
+        //
+        //         console.log("RESPONSE", res +"\n\n");
+        //         console.log("RESPONSE - DATA", res.data);
+        //     }).catch(e => {
+        //     if (e.response) {
+        //         const errorMsg = JSON.stringify(e.response.data.error);
+        //         console.log("REQUEST SUCCESS");
+        //     } else if (e.request) {
+        //         console.log(e.request);
+        //     } else {
+        //         console.log('Error', e.message);
+        //     }
+        // });
+        //
+        // } catch (error) {
+        //     console.error("FAILED", error);
+        // }
 
-            await axios.post('http://localhost:5000/', form_data )
-                .then(res => {
-                this.state.server_response = res.data;
-
-                console.log("RESPONSE", res +"\n\n");
-                console.log("RESPONSE - DATA", res.data);
-            });
-
-        } catch (error) {
-            console.error("FAILED", error);
+        if(this.state.fields.password === "password"){
+            setTimeout(() => {
+                this.setState({gotodashboard : true});
+            }, 5000);
+        }else{
+            setTimeout(() => {
+                this.setState({incorrect : true, loading : false});
+            }, 5000);
         }
     }
 
@@ -115,9 +142,13 @@ class serviceProviderCreatePassword extends Component {
     }
 
     render() {
-        if(!this.isValid(this.token)) {
+        if(this.isValid(this.token)) {
             return (
                     <div className="provider-child">
+                        { this.state.loading ? <Loader/> :null}
+                        { this.state.gotodashboard ? <Redirect to={{ pathname : '/service/provider/dashboard/', state: { token: this.token } }}/> : null}
+                        { this.state.incorrect ? <InvalidPassword error = {"Invalid Password, Click here to reset your password"} /> :null}
+
                         <div className="header-container">
                             <h3 className="h3">Sign up here</h3>
                         </div>
@@ -148,7 +179,8 @@ class serviceProviderCreatePassword extends Component {
 
                     </div>
             );
-        }else{
+        }
+        else {
             return <Redirect to='/service/provider/basics' />
         }
       }

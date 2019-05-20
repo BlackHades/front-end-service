@@ -26,6 +26,7 @@ import ServicesProvidersPage from "./pages/ServiceProviders/ServicesProvidersPag
 import ServicesProvidersCreatePassword from "./pages/ServiceProviders/ServicesProvidersPage/ServiceProviderCreatePassword";
 import ServiceProviderLogin from "./pages/ServiceProviders/ServicesProvidersPage/ServiceProviderLogin";
 import ServiceProviderDashBoard from "./pages/ServiceProviders/ServicesProvidersPage/ServiceProviderDashBoard";
+import AddNewService from "./pages/ServiceProviders/ServicesProvidersPage/AddNewService";
 
 class AppRouter extends Component {
 
@@ -183,7 +184,10 @@ class AppRouter extends Component {
                        render={(props) => <ServiceProviderLogin {...props}/>}
                 />
 
-                <Route path="/service/provider/dashboard/" component={ServiceProviderDashBoard}
+                <Route path="/service/provider/dashboard/:token" component={ServiceProviderDashBoard}
+                />
+
+                <Route path="/service/provider/add_service" component={AddNewService}
                 />
 
             </Router>
